@@ -3,16 +3,16 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import viewsets
 
-from .serializers import ProfileSerializer
-from .models import Profile
+from .serializers import UserSerializer
+from .models import User
 
 
-class ProfileViewSet(viewsets.ModelViewSet):
-    queryset = Profile.objects.all().order_by('id')
-    serializer_class = ProfileSerializer
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all().order_by('id')
+    serializer_class = UserSerializer
 
     def get_queryset(self):
-        queryset = Profile.objects.all().order_by('id')
+        queryset = User.objects.all().order_by('id')
 
         email_param = self.request.query_params.get('email', None)
 
