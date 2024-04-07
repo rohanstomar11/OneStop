@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import UserSerializer
 from .models import User
@@ -10,6 +11,7 @@ from .models import User
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         queryset = User.objects.all().order_by('id')
