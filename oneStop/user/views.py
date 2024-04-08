@@ -16,9 +16,9 @@ class UserViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = User.objects.all().order_by('id')
 
-        email_param = self.request.query_params.get('email', None)
+        username_param = self.request.query_params.get('username', None)
 
-        if email_param:
-            queryset = queryset.filter(email=email_param)
+        if username_param:
+            queryset = queryset.filter(username=username_param)
 
         return queryset
