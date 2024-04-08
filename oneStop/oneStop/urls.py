@@ -26,4 +26,5 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('', include('user.urls')),
+    path('', include('authapp.urls')),
 ]
