@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
+from user.models import User as Profile
 
 class RegisterSerializer(serializers.ModelSerializer):
     username = serializers.EmailField(
@@ -23,5 +24,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         
         user.set_password(validated_data['password'])
         user.save()
+
+        profile = Profile.objects.create(
+            username=user,
+        )
 
         return user
