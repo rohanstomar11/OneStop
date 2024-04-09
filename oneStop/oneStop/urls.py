@@ -27,4 +27,5 @@ urlpatterns = [
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('', include('user.urls')),
     path('', include('authapp.urls')),
+    path('', include('networkingrequests.urls')),
 ]

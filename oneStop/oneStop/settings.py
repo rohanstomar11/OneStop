@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'user.apps.UserConfig',
     'corsheaders',
-    'authapp.apps.AuthappConfig'
+    'user.apps.UserConfig',
+    'authapp.apps.AuthappConfig',
+    'networkingrequests.apps.NetworkingrequestsConfig'
 ]
 
 MIDDLEWARE = [
