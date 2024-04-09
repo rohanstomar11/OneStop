@@ -28,4 +28,5 @@ urlpatterns = [
     path('', include('user.urls')),
     path('', include('authapp.urls')),
     path('', include('networkingrequests.urls')),
+    path('', include('networking.urls')),
 ]
