@@ -9,7 +9,6 @@ class RegisterSerializer(serializers.ModelSerializer):
             required=True,
             validators=[UniqueValidator(queryset=User.objects.all())]
             )
-
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
 
     class Meta:
@@ -18,7 +17,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = User.objects.create(
-            username=validated_data['username'],
+            username=validated_data['username']
         )
 
         
@@ -27,6 +26,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         profile = Profile.objects.create(
             username=user,
+            profileCreated=False
         )
 
         return user
