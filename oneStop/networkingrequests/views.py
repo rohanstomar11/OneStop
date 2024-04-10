@@ -29,15 +29,16 @@ class NetworkingStatusViewSet(viewsets.ModelViewSet):
 
     def create(self, request, format=None):
         requestId = request.data.get('id')
+        approveRequest = request.data.get('approve')
         try:
             connectionRequest = NetworkingRequests.objects.get(id=requestId)
-
-            connection = Networking.objects.create(
-                senderId=connectionRequest.senderId,
-                receiverId=connectionRequest.receiverId
-            )
+            if approveRequest:
+                connection = Networking.objects.create(
+                    senderId=connectionRequest.senderId,
+                    receiverId=connectionRequest.receiverId
+                )
 
             connectionRequest.delete()
         except:
             return Response({"success": "Request Not Found!"}, status=status.HTTP_404_NOT_FOUND)
-        return Response({"success": "Connection Request Approved"}, status=status.HTTP_204_NO_CONTENT)
+        return Response({"success": "Connection Request Approved" if approveRequest else "Connection Request Rejected"}, status=status.HTTP_201_CREATED)

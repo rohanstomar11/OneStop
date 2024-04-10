@@ -17,10 +17,10 @@ class UserViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = User.objects.all().order_by('id')
 
-        username_param = self.request.query_params.get('username', None)
+        id_param = self.request.query_params.get('id', None)
 
-        if username_param:
-            queryset = queryset.filter(username=username_param)
+        if id_param:
+            queryset = queryset.filter(id=id_param)
 
         return queryset
     
