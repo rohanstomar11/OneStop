@@ -1,13 +1,22 @@
-from rest_framework import generics
-from .models import Mentor
+from rest_framework import viewsets
+
 from .serializers import MentorSerializer
+from rest_framework.permissions import IsAuthenticated
+from .models import Mentor
 
 
-class MentorListCreate(generics.ListCreateAPIView):
-    queryset = Mentor.objects.all()
+class MentorshipViewSet(viewsets.ModelViewSet):
+    queryset = Mentor.objects.all().order_by("user")
     serializer_class = MentorSerializer
 
+    permission_classes = [IsAuthenticated]
 
-class MentorRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Mentor.objects.all()
-    serializer_class = MentorSerializer
+    def get_queryset(self):
+        queryset = Mentor.objects.all().order_by("id")
+
+        receiverIdParam = self.request.query_params.get("id", None)
+
+        if receiverIdParam:
+            queryset = queryset.filter(receiverId=receiverIdParam)
+
+        return queryset

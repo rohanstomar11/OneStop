@@ -8,7 +8,7 @@ class MentorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Mentor
-        fields = [
+        fields = (
             "id",
             "user",
             "bio",
@@ -24,4 +24,4 @@ class MentorSerializer(serializers.ModelSerializer):
             "mentoring_style",
             "feedback",
             "privacy_settings",
-        ]
+        )
