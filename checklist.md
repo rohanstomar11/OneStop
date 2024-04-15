@@ -11,7 +11,7 @@ Setup a Virtual Environment.
 Example. To create a virtual environment using venv (ONE TIME)
 
 ```bash
-python -m venv env 
+python -m venv env
 ```
 
 Activate the virtual Environment
@@ -102,8 +102,8 @@ from django.db import models
 
 class Profile(models.Model):
     name = models.CharField(max_length=60)
-    email = models.CharField(max_length=60)    
-    
+    email = models.CharField(max_length=60)
+
     def __str__(self):
         return self.name
 ```
@@ -263,3 +263,14 @@ CORS_ALLOWED_ORIGINS = [
 - Go to http://localhost:8000/profiles/1/ & see a specific Profile instance.
 - POST a payload to http://localhost:8000/profiles to add a new Profile.
 - PUT/PATCH a payload to http://localhost:8000/profiles/1/ to update a Profile instance.
+
+POSTMAN
+
+1. Create user
+   a)Register API (2XX)
+   i)Login api call- refresh and access token.
+   ii) Call access token. 401-wrong access token, 2XX for correct.
+   iii) Use it for accessing all APIs.
+
+b) Register profile details
+i) POST call depending on the user type.

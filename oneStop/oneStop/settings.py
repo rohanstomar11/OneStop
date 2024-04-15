@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "user.apps.UserConfig",
     "mentorship.apps.MentorshipConfig",
     "authapp.apps.AuthappConfig",
+    "mentorshiprequests.apps.MentorshiprequestsConfig",
     "networkingrequests.apps.NetworkingrequestsConfig",
     "networking.apps.NetworkingConfig",
 ]

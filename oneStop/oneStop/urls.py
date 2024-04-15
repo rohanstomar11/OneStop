@@ -29,6 +29,7 @@ urlpatterns = [
     path("", include("user.urls")),
     path("", include("authapp.urls")),
     path("", include("networkingrequests.urls")),
+    path("", include("mentorshiprequests.urls")),
     path("", include("networking.urls")),
     path("", include("mentorship.urls")),
 ]
