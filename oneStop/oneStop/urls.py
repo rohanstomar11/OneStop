@@ -29,4 +29,5 @@ urlpatterns = [
     path('', include('authapp.urls')),
     path('', include('networkingrequests.urls')),
     path('', include('networking.urls')),
+    path('',include('jobs.urls'))
 ]

@@ -4,4 +4,4 @@ from .models import Job
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ['title', 'description', 'company', 'location', 'salary', 'posted_at','job_type']
+        fields = ['title', 'description', 'company', 'location', 'salary','job_type','url']

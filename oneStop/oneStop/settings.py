@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'authapp.apps.AuthappConfig',
     'networkingrequests.apps.NetworkingrequestsConfig',
     'networking.apps.NetworkingConfig',
+    'jobs',
 ]
 
 MIDDLEWARE = [
