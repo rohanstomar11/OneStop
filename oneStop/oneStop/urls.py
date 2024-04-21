@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import (
@@ -29,5 +30,7 @@ urlpatterns = [
     path('', include('authapp.urls')),
     path('', include('networkingrequests.urls')),
     path('', include('networking.urls')),
-    path('',include('jobs.urls'))
+    path('',include('jobs.urls')),
+    path("", include("mentorshiprequests.urls")),
+    path("", include("mentorship.urls")),
 ]
