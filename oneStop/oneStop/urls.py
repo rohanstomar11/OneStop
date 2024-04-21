@@ -32,4 +32,5 @@ urlpatterns = [
     path("", include("mentorshiprequests.urls")),
     path("", include("networking.urls")),
     path("", include("mentorship.urls")),
+    path("", include("chat_rooms.urls")),
 ]

@@ -4,14 +4,14 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(
-    r"connectionrequests",
+    r"mentorshiprequests",
     views.MentorshipRequestsViewSet,
-    basename="connectionrequests",
+    basename="mentorshiprequests",
 )
 router.register(
-    r"connectionrequestsstatus",
+    r"mentorshiprequestsstatus",
     views.MentorshipStatusViewSet,
-    basename="connectionrequestsstatus",
+    basename="mentorshiprequestsstatus",
 )
 
 # Wire up our API using automatic URL routing.

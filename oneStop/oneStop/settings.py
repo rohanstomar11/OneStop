@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "user.apps.UserConfig",
+    "chat_rooms.apps.ChatRoomsConfig",
     "mentorship.apps.MentorshipConfig",
     "authapp.apps.AuthappConfig",
     "mentorshiprequests.apps.MentorshiprequestsConfig",
