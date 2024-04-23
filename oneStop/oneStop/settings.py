@@ -32,21 +32,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "rest_framework",
-    "corsheaders",
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     "user.apps.UserConfig",
     "chat_rooms.apps.ChatRoomsConfig",
     "mentorship.apps.MentorshipConfig",
     "authapp.apps.AuthappConfig",
     "mentorshiprequests.apps.MentorshiprequestsConfig",
     "networkingrequests.apps.NetworkingrequestsConfig",
-    "networking.apps.NetworkingConfig",
+    'networking.apps.NetworkingConfig',
+    'jobs',
 ]
 
 MIDDLEWARE = [
