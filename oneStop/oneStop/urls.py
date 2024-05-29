@@ -20,6 +20,8 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +31,9 @@ urlpatterns = [
     path('', include('authapp.urls')),
     path('', include('networkingrequests.urls')),
     path('', include('networking.urls')),
-    path('',include('jobs.urls'))
+    path('',include('jobs.urls')),
+    path('',include('resources.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
