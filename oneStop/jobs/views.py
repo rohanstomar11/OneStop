@@ -1,14 +1,14 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated
+#from rest_framework.permissions import IsAuthenticated
 from .models import Job, SavedJob
 from .serializers import JobSerializer, SavedJobSerializer
 
 class JobsViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all().order_by('id')
     serializer_class = JobSerializer
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user.username)
@@ -46,7 +46,7 @@ class JobsViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Job removed successfully'}, status=status.HTTP_204_NO_CONTENT)
 
     @action(detail=False, methods=['get'], url_path='count', url_name='count')
     def get_job_count(self, request):
