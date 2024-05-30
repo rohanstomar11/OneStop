@@ -2,20 +2,20 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework import viewsets
-from django.contrib.auth.models import User
 from .models import Job, SavedJob
 from .serializers import JobSerializer, SavedJobSerializer
-
 from rest_framework.permissions import IsAuthenticated
 
 class JobsViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all().order_by('id')
     serializer_class = JobSerializer
-    permission_classes = [IsAuthenticated]  # Add permission class here
-    
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
+
     def get_queryset(self):
         queryset = Job.objects.all().order_by('id')
-
         receiverIdParam = self.request.query_params.get('id', None)
 
         if receiverIdParam:
@@ -48,4 +48,3 @@ class JobsViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
-
