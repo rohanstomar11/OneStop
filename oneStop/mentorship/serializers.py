@@ -4,7 +4,7 @@ from .models import Mentor
 
 class MentorSerializer(serializers.ModelSerializer):
     # Define fields explicitly with custom attributes if needed
-    user = serializers.PrimaryKeyRelatedField(read_only=True)
+    user = serializers.PrimaryKeyRelatedField()
 
     class Meta:
         model = Mentor
