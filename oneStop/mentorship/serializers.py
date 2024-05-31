@@ -1,27 +1,9 @@
+# mentorship/serializers.py
+
 from rest_framework import serializers
 from .models import Mentor
 
-
 class MentorSerializer(serializers.ModelSerializer):
-    # Define fields explicitly with custom attributes if needed
-    user = serializers.PrimaryKeyRelatedField()
-
     class Meta:
         model = Mentor
-        fields = (
-            "id",
-            "user",
-            "bio",
-            "skills",
-            "education",
-            "experience",
-            "availability",
-            "location",
-            "areas_of_interest",
-            "languages_spoken",
-            "social_links",
-            "average_rating",
-            "mentoring_style",
-            "feedback",
-            "privacy_settings",
-        )
+        fields = ('id', 'user', 'company', 'bio', 'skills', 'education', 'experience', 'availability', 'location', 'areas_of_interest', 'languages_spoken', 'social_links', 'average_rating', 'feedback', 'privacy_settings')

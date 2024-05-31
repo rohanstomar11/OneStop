@@ -34,6 +34,8 @@ urlpatterns = [
     path('', include('networking.urls')),
     path('',include('jobs.urls')),
     path('',include('resources.urls')),
+    path('mentorship/', include('mentorship.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 if settings.DEBUG:

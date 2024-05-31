@@ -48,13 +48,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     "user.apps.UserConfig",
-    "mentorship.apps.MentorshipConfig",
     "authapp.apps.AuthappConfig",
     "mentorshiprequests.apps.MentorshiprequestsConfig",
     "networkingrequests.apps.NetworkingrequestsConfig",
     'networking.apps.NetworkingConfig',
     'jobs',
     'resources',
+    'mentorship',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +77,7 @@ ROOT_URLCONF = "oneStop.urls"
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 10,
+    "PAGE_SIZE": 50,
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],

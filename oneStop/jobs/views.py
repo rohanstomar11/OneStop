@@ -1,25 +1,31 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-#from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from .models import Job, SavedJob
 from .serializers import JobSerializer, SavedJobSerializer
+import logging
+
+logger = logging.getLogger(__name__)
 
 class JobsViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all().order_by('id')
     serializer_class = JobSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user.username)
 
     def get_queryset(self):
+        logger.debug("Fetching all jobs")
         queryset = Job.objects.all().order_by('id')
         receiverIdParam = self.request.query_params.get('id', None)
 
         if receiverIdParam:
+            logger.debug(f"Filtering jobs by id: {receiverIdParam}")
             queryset = queryset.filter(id=receiverIdParam)
 
+        logger.debug(f"Job queryset: {queryset}")
         return queryset
 
     @action(detail=True, methods=['post'], url_path='save', url_name='save')

@@ -1,12 +1,12 @@
+# mentorship/urls.py
+
 from django.urls import include, path
 from rest_framework import routers
-from . import views
+from .views import MentorViewSet
 
 router = routers.DefaultRouter()
-router.register(r"mentorship", views.MentorshipViewSet)
+router.register(r'mentors', MentorViewSet)
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path("", include(router.urls)),
+    path('', include(router.urls)),
 ]
